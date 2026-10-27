@@ -29,6 +29,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Portfolio backend is running successfully!",
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({ success: true, message: 'API is running' });
 });
